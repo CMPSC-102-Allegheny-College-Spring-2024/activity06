@@ -88,7 +88,7 @@
 - description: Run the demonstrate-map-function.py program and confirm the correct number of non-blank lines in the output. Note, This test may fail locally but not on GitHub.
   check: CountCommandOutput
   options:
-    command: 'cd source; python demonstrate-map-function.py'
+    command: 'cd source; python3 demonstrate-map-function.py'
     count: 4
     exact: true
 
@@ -96,6 +96,6 @@
 - description: Run the demonstrate-reduce-function.py program and confirm the correct number of non-blank lines in the output. Note, This test may fail locally but not on GitHub.
   check: CountCommandOutput
   options:
-    command: 'cd source; python demonstrate-reduce-function.py '
+    command: 'cd source; python3 demonstrate-reduce-function.py'
     count: 4
     exact: true
