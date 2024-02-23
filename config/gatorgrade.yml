@@ -1,0 +1,101 @@
+# --> check the Python program
+- source/demonstrate-map-function.py:
+  - description: Ensure that the demonstrate-map-function.py file exists in the source/demonstrate-map-function directory
+    check: ConfirmFileExists
+  - description: Complete all TODOs, remove the TODO markers in the demonstrate-map-function.py
+    check: MatchFileFragment
+    options:
+      fragment: TODO
+      count: 0
+      exact: true
+  - description: Create a sufficient number of docstring (i.e., multiple-line) comments in demonstrate-map-function.py
+    check: CountMultipleLineComments
+    options:
+      language: "Python"
+      count: 3
+      exact: false
+  - description: Create a sufficient number of single-line comments in demonstrate-map-function.py
+    check: CountSingleLineComments
+    options:
+      language: "Python"
+      count: 6
+      exact: false
+
+# --> check the Python program
+- source/demonstrate-reduce-function.py:
+  - description: Ensure that the demonstrate-reduce-function.py file exists in the source/demonstrate-map-function directory
+    check: ConfirmFileExists
+  - description: Complete all TODOs, remove the TODO markers in the demonstrate-reduce-function.py
+    check: MatchFileFragment
+    options:
+      fragment: TODO
+      count: 0
+      exact: true
+  - description: Create a sufficient number of docstring (i.e., multiple-line) comments in demonstrate-reduce-function.py
+    check: CountMultipleLineComments
+    options:
+      language: "Python"
+      count: 3
+      exact: false
+  - description: Create a sufficient number of single-line comments in demonstrate-reduce-function.py
+    check: CountSingleLineComments
+    options:
+      language: "Python"
+      count: 5
+      exact: false
+
+# --> check the technical writing for various characteristics
+- writing/reflection.md:
+  - description: Ensure that reflection.md file exists in the writing/ directory
+    check: ConfirmFileExists
+  - description: Write a minimum number of meaningful words in the reflection
+    check: CountFileWords
+    options:
+      count: 200
+      exact: false
+  - description: Confirm that the markdown file has the correct number of headers
+    check: CountMarkdownTags
+    options:
+      tag: heading
+      count: 9
+      exact: true
+  - description: Confirm that the markdown file has the correct number of code blocks
+    check: CountMarkdownTags
+    options:
+      tag: code_block
+      count: 4
+      exact: true
+  - description: Complete all TODOs, remove the TODO markers in the reflection.md
+    check: MatchFileFragment
+    options:
+      fragment: TODO
+      count: 0
+      exact: true
+  - description: Delete the 'Add Your Name Here' prompt in the reflection file
+    check: MatchFileFragment
+    options:
+      fragment: "Add Your Name Here"
+      count: 0
+      exact: true
+
+# count number of commits in the GitHub repository
+- description: Have at least a specific minimum number of commits (5) in repository
+  check: CountCommits
+  options:
+    count: 5
+
+# run the program and confirm correct number of lines in the output
+- description: Run the demonstrate-map-function.py program and confirm the correct number of non-blank lines in the output. Note, This test may fail locally but not on GitHub.
+  check: CountCommandOutput
+  options:
+    command: 'cd source; python demonstrate-map-function.py'
+    count: 4
+    exact: true
+
+# run the program and confirm correct number of lines in the output
+- description: Run the demonstrate-reduce-function.py program and confirm the correct number of non-blank lines in the output. Note, This test may fail locally but not on GitHub.
+  check: CountCommandOutput
+  options:
+    command: 'cd source; python demonstrate-reduce-function.py '
+    count: 4
+    exact: true
